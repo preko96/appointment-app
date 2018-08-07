@@ -38,7 +38,7 @@ Flex.propTypes = {
 	direction: PropTypes.string,
 	backgroundColor: PropTypes.string,
 	style: PropTypes.object,
-	height: PropTypes.oneOf([
+	height: PropTypes.oneOfType([
 		PropTypes.number,
 		PropTypes.string
 	]),
