@@ -1,3 +1,5 @@
 import { user } from '../../util/createReduxModule'
 
-export const ON_CHANGE_INPUT = user('ON_CHANGE_INPUT')
+const moduleUser = name => user('Inputs', name)
+
+export const ON_CHANGE_INPUT = moduleUser('ON_CHANGE_INPUT')

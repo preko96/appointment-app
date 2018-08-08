@@ -1,6 +1,6 @@
 import { 
 	ON_CHANGE_INPUT
-} from './actions'
+} from './constants'
 
 export const onChangeInput = (field, text) => ({
 	type: ON_CHANGE_INPUT,

@@ -10,7 +10,7 @@ class InputField extends React.Component {
 	}
 
 	render() {
-		const { width, height, onSearch, containerStyle, inputStyle, buttonStyle } = this.props
+		const { width, height, value, controlled, onSearch, containerStyle, inputStyle, buttonStyle } = this.props
 		return(
 			<div style={{ 
 				display: 'flex',
@@ -20,7 +20,10 @@ class InputField extends React.Component {
 				height: height,
 				...containerStyle
 			}}>
-				<input 
+				<input
+					//conditional prop
+					{...(controlled && {value: value})}
+					onChange={this.onChangeText}
 					style={{
 						width: '100%',
 						border: 'none',
@@ -41,7 +44,9 @@ class InputField extends React.Component {
 
 InputField.defaultProps = {
 	width: 200,
-	height: 40
+	height: 40,
+	value: '',
+	controlled: false,
 }
 
 InputField.propTypes = {
@@ -53,6 +58,8 @@ InputField.propTypes = {
 		PropTypes.string,
 		PropTypes.number
 	]),
+	value: PropTypes.string,
+	controlled: PropTypes.bool,
 	containerStyle: PropTypes.object,
 	inputStyle: PropTypes.object,
 	buttonStyle: PropTypes.object,

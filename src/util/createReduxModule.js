@@ -1,4 +1,9 @@
-const createModule = (module, name) => `${module}/${name}`
+const module = (mod, trigger, name) => `${mod}/${trigger}/${name}`
 
-export const user = name => createModule('USER', name)
-export const saga = name => createModule('SAGA', name)
+const saga = (mod, name) => module(mod, 'Saga', name)
+const user = (mod, name) => module(mod, 'User', name)
+
+export {
+	saga,
+	user
+}

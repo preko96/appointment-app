@@ -1,7 +1,7 @@
 import { 
 	ON_ADD_FRIEND,
 	ON_REMOVE_FRIEND
-} from './actions'
+} from './constants'
 
 export const onAddFriend = friend => ({
 	type: ON_ADD_FRIEND,

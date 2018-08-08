@@ -1,4 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { onChangeInput } from '../../redux/inputs/actions'
 import Drawer from '../../containers/Drawer'
 import Layout from '../../components/Layout'
 import Flex from '../../components/Flex'
@@ -13,6 +16,7 @@ class UserScreen extends React.Component {
 	toggleDrawer = () => this._drawer.toggle()
 
 	render() {
+		const { searchInput, onChangeInput } = this.props
 		return(
 			<Layout>
 				<Drawer backgroundColor='firebrick' ref={this.setDrawerRef}/>
@@ -32,7 +36,7 @@ class UserScreen extends React.Component {
 					<Flex align='center'>
 						<H size='2' style={{ color: 'white' }}>Book an appointment!</H>
 						<Padder p={4}/>
-						<InputField width={400} containerStyle={{ maxWidth: '50%' }} onSearch={()=>console.warn('hello')}/>
+						<InputField controlled value={searchInput} onChangeText={onChangeInput} width={400} containerStyle={{ maxWidth: '50%' }} onSearch={()=>console.warn('hello')}/>
 					</Flex>
 				</Flex>
 				<Flex justify='center' align='center' height={48} onClick={this.toggleDrawer}>
@@ -43,5 +47,18 @@ class UserScreen extends React.Component {
 	}
 }
 
+const mapStateToProps = state => ({
+	searchInput: state.inputs.friends
+})
 
-export default UserScreen
+const mapDispatchToProps = dispatch => ({
+	onChangeInput: text => dispatch(onChangeInput('friends', text))
+})
+
+UserScreen.propTypes = {
+	onChangeInput: PropTypes.func.isRequired,
+	searchInput: PropTypes.string.isRequired,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserScreen)
+export { UserScreen }

@@ -12,7 +12,7 @@ const DrawerElement = withAdditionalStyle({
 
 class Drawer extends React.Component {
 	
-	state = { open: true }
+	state = { open: false }
 
 	toggle = () => this.setState(state=>({ open: !state.open }))
 
@@ -47,6 +47,6 @@ class Drawer extends React.Component {
 			</Flex>
 		)
 	}
-} 
+}
 
 export default Drawer

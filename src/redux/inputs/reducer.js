@@ -9,7 +9,7 @@ const initState = {
 export default (state=initState, action={}) => {
 	switch(action.type) {
 	case ON_CHANGE_INPUT: {
-		const { field, text } = action
+		const { field, text } = action.payload
 		return {
 			...state,
 			[field]: text
