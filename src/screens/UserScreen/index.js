@@ -16,11 +16,12 @@ class UserScreen extends React.Component {
 		return(
 			<Layout>
 				<Drawer backgroundColor='firebrick' ref={this.setDrawerRef}/>
-				<Flex direction='row' height={48}>
+				<Flex direction='row' height={96}>
 					<Flex justify='center' align='flex-start'>
 					</Flex>
 
 					<Flex justify='center' align='center'>
+						<H size='1'>Quite simple</H>
 					</Flex>
 
 					<Flex justify='center' align='flex-end'>
